@@ -27,7 +27,7 @@
         android:text="@string/tv_login_id"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_welcome" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_welcome" />
 
     <EditText
         android:id="@+id/et_login_id_id_hint"
@@ -40,7 +40,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_id" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_id" />
 
     <TextView
         android:id="@+id/tv_login_id_pw"
@@ -51,7 +51,7 @@
         android:text="@string/tv_login_pw"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_id_id_hint" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_id_hint" />
 
     <EditText
         android:id="@+id/et_login_id_pw_hint"
@@ -65,7 +65,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_pw" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_pw" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_id_sign_in"
@@ -87,5 +87,5 @@
         android:text="@string/btn_login_sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_id_pw_hint" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_pw_hint" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@
         android:text="@string/tv_sign_up_id"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_welcome" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_welcome" />
 
     <EditText
         android:id="@+id/et_login_id_id_hint"
@@ -41,7 +41,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_id" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_id" />
 
     <TextView
         android:id="@+id/tv_login_id_pw"
@@ -52,7 +52,7 @@
         android:text="@string/tv_sign_up_pw"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_id_id_hint" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_id_hint" />
 
     <EditText
         android:id="@+id/et_login_id_pw_hint"
@@ -65,7 +65,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_pw" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_pw" />
 
     <TextView
         android:id="@+id/tv_sign_up_id_name"
@@ -76,7 +76,7 @@
         android:text="@string/tv_sign_up_name"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_id_pw_hint" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_pw_hint" />
 
     <EditText
         android:id="@+id/et_sign_up_id_nametext"
@@ -89,7 +89,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_id_name" />
 
     <TextView
         android:id="@+id/tv_sign_up_id_mbti"
@@ -100,7 +100,7 @@
         android:text="@string/tv_sign_up_mbti"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_id_nametext" />
+        app:layout_constraintTop_toBottomOf="@id/et_sign_up_id_nametext" />
 
     <EditText
         android:id="@+id/et_sign_up_id_mbtitext"
@@ -113,7 +113,7 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id_mbti" />
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_id_mbti" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_id_sign_up"

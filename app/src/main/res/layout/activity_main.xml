@@ -23,10 +23,10 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_mypage_name"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_mypage_id_user_id"
+        app:layout_constraintBottom_toTopOf="@id/tv_mypage_id_user_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_mypage_id_profile" />
+        app:layout_constraintTop_toBottomOf="@id/img_mypage_id_profile" />
 
     <TextView
         android:id="@+id/tv_mypage_id_user_id"
@@ -37,7 +37,7 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_id_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_name" />
 
     <TextView
         android:id="@+id/tv_mypage_id_user_id_content"
@@ -47,7 +47,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_id_user_id" />
+        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_id" />
 
     <TextView
         android:id="@+id/tv_mypage_id_user_mbti"
@@ -58,7 +58,7 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_id_user_id_content" />
+        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_id_content" />
 
     <TextView
         android:id="@+id/tv_mypage_id_user_mbti_content"
@@ -68,7 +68,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_id_user_mbti" />
+        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_mbti" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
