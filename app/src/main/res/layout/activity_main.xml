@@ -32,12 +32,12 @@
         android:id="@+id/userId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/tv_mypage_id"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/userIdContent"
@@ -53,12 +53,12 @@
         android:id="@+id/userMbti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/tv_mypage_mbti"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userIdContent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/userIdContent" />
 
     <TextView
         android:id="@+id/userMbtiContent"
@@ -69,8 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userMbti" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
