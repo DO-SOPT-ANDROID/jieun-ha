@@ -37,16 +37,16 @@ class LoginActivity : AppCompatActivity() {
             }
 
         // 회원가입 페이지로 이동
-        binding.btnSignUp.setOnClickListener {
+        binding.btnLoginIdSignUp.setOnClickListener {
             // Intent 실행
             val intent = Intent(this, SignUpActivity::class.java)
             getResultID.launch(intent)
         }
 
         // 로그인 버튼 클릭 시
-        binding.btnSignIn.setOnClickListener {
-            var id: String = binding.editText.text.toString()
-            var pw: String = binding.editText2.text.toString()
+        binding.btnLoginIdSignIn.setOnClickListener {
+            var id: String = binding.etLoginIdIdHint.text.toString()
+            var pw: String = binding.etLoginIdPwHint.text.toString()
 
             if (id == getid && pw == getpw) {
                 toast("로그인 성공!")

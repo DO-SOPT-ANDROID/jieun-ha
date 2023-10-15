@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         val mbti = intent.getStringExtra("mbti")
         val id = intent.getStringExtra("idresult")
 
-        binding.name.text = name
-        binding.userIdContent.hint = id
-        binding.userMbtiContent.hint = mbti
+        binding.tvMypageIdName.text = name
+        binding.tvMypageIdUserIdContent.hint = id
+        binding.tvMypageIdUserMbtiContent.hint = mbti
     }
 }

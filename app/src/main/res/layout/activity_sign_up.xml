@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_login_id_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_sign_up"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_login_id_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -28,10 +28,10 @@
         android:text="@string/tv_sign_up_id"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_welcome" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_login_id_id_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -41,10 +41,10 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_id" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_login_id_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -52,10 +52,10 @@
         android:text="@string/tv_sign_up_pw"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_login_id_id_hint" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_login_id_pw_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -65,10 +65,10 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_id_pw" />
 
     <TextView
-        android:id="@+id/nameView"
+        android:id="@+id/tv_sign_up_id_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -76,10 +76,10 @@
         android:text="@string/tv_sign_up_name"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_login_id_pw_hint" />
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/et_sign_up_id_nametext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -89,10 +89,10 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id_name" />
 
     <TextView
-        android:id="@+id/MbtiView"
+        android:id="@+id/tv_sign_up_id_mbti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -100,10 +100,10 @@
         android:text="@string/tv_sign_up_mbti"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_id_nametext" />
 
     <EditText
-        android:id="@+id/MbtiText"
+        android:id="@+id/et_sign_up_id_mbtitext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -113,10 +113,10 @@
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MbtiView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_up_id_mbti" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sign_up"
+        android:id="@+id/btn_login_id_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
