@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (id == getid && pw == getpw) {
                 toast("로그인 성공!")
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity, MyPageActivity::class.java)
                 intent.putExtra("name", getname)
                 intent.putExtra("mbti", getmbti)
                 intent.putExtra("idresult", getid)
