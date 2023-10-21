@@ -1,18 +1,13 @@
 package org.sopt.dosopttemplate
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import org.sopt.dosopttemplate.Utils.UserInfo
 import org.sopt.dosopttemplate.databinding.ActivityLoginBinding
-import java.nio.file.attribute.UserDefinedFileAttributeView
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -24,11 +19,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // ActivityResultLauncher 초기화, 결과값 이벤트 핸들러 정의
-        getResultID = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-                result ->
-            if(result.resultCode == RESULT_OK){
+        getResultID =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                }
             }
-        }
 
         // 회원가입 페이지로 이동
         binding.btnLoginIdSignUp.setOnClickListener {

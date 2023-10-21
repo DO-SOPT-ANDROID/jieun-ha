@@ -1,11 +1,10 @@
 package org.sopt.dosopttemplate
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.dosopttemplate.databinding.ActivityMyPageBinding
 
-class MyPageActivity : AppCompatActivity(){
+class MyPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyPageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

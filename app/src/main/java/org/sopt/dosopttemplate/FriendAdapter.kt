@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.dosopttemplate.databinding.ItemFriendBinding
 
-class FriendAdapter(context: Context) : RecyclerView.Adapter<FriendViewHolder>()
-{
+class FriendAdapter(context: Context) : RecyclerView.Adapter<FriendViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
 
     // 임시 빈 리스트
-    private var friendList:List<Friend> = emptyList()
+    private var friendList: List<Friend> = emptyList()
 
     // 어댑터 클래스 필수 함수 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
@@ -28,7 +27,7 @@ class FriendAdapter(context: Context) : RecyclerView.Adapter<FriendViewHolder>()
     override fun getItemCount() = friendList.size
 
     // 임시 리스트에 가짜 리스트를 연결
-    fun setFriendList(friendList: List<Friend>){
+    fun setFriendList(friendList: List<Friend>) {
         this.friendList = friendList.toList()
         notifyDataSetChanged() // 어댑터에 데이터의 변화 알림
     }

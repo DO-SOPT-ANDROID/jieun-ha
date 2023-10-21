@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import org.sopt.dosopttemplate.databinding.ActivityHomeBinding
-import org.sopt.dosopttemplate.databinding.ActivityMyPageBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -23,10 +22,11 @@ class HomeActivity : AppCompatActivity() {
 
         clickBottomNavigation()
     }
+
     private fun clickBottomNavigation() {
-        binding.bnvHome.setOnItemSelectedListener{
+        binding.bnvHome.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.menu_home-> {
+                R.id.menu_home -> {
                     replaceFragment(HomeFragment())
                     true
                 }
@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }*/
 
-                R.id.menu_mypage-> {
+                R.id.menu_mypage -> {
                     replaceFragment(MyPageFragment())
                     true
                 }

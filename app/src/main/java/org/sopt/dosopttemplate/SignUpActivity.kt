@@ -2,12 +2,10 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
-import androidx.fragment.app.viewModels
 import org.sopt.dosopttemplate.Utils.UserInfo
+import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding

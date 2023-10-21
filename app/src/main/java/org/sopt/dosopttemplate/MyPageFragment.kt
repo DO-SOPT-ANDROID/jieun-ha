@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import org.sopt.dosopttemplate.Utils.UserInfo
 import org.sopt.dosopttemplate.databinding.FragmentMyPageBinding
 
-class MyPageFragment: Fragment() {
+class MyPageFragment : Fragment() {
     private var _binding: FragmentMyPageBinding? = null
     private val binding: FragmentMyPageBinding
         get() = requireNotNull(_binding) { "바인딩 객체가 생성되지 않았다. 생성하고 불러라 임마!" }
