@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fcv_home)
         if (currentFragment == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fcv_home, HomeFragment())       // 흠...
+                .add(R.id.fcv_home, HomeFragment())
                 .commit()
         }
 
@@ -32,12 +32,12 @@ class HomeActivity : AppCompatActivity() {
                 /*R.id.menu_do_android-> {
                     replaceFragment(DoAndroidFragment())
                     true
-                }
+                }*/
 
                 R.id.menu_mypage-> {
                     replaceFragment(MyPageFragment())
                     true
-                }*/
+                }
 
                 else -> false
             }
