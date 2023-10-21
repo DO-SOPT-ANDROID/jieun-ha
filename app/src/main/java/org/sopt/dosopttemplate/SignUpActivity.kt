@@ -2,9 +2,12 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
+import androidx.fragment.app.viewModels
+import org.sopt.dosopttemplate.Utils.UserInfo
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -20,10 +23,13 @@ class SignUpActivity : AppCompatActivity() {
 
             if (testResult) { // 조건이 적절한 경우
                 val intent = Intent(this, LoginActivity::class.java)
-                intent.putExtra("idresult", binding.etLoginIdIdHint.text.toString())
-                intent.putExtra("pwresult", binding.etLoginIdPwHint.text.toString())
-                intent.putExtra("mbti", binding.etSignUpIdMbtitext.text.toString())
-                intent.putExtra("name", binding.etSignUpIdNametext.text.toString())
+
+                // UserInfo의 companion object에 저장
+                UserInfo.userName = binding.etSignUpIdNametext.text.toString()
+                UserInfo.userID = binding.etLoginIdIdHint.text.toString()
+                UserInfo.userPW = binding.etLoginIdPwHint.text.toString()
+                UserInfo.userMbti = binding.etSignUpIdMbtitext.text.toString()
+
                 Snackbar.make(
                     binding.root,
                     "회원가입 성공!",

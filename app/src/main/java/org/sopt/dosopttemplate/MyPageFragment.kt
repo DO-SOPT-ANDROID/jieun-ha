@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.sopt.dosopttemplate.databinding.ActivityMyPageBinding
+import androidx.lifecycle.ViewModelProvider
+import org.sopt.dosopttemplate.Utils.UserInfo
 import org.sopt.dosopttemplate.databinding.FragmentMyPageBinding
 
 class MyPageFragment: Fragment() {
@@ -20,10 +21,9 @@ class MyPageFragment: Fragment() {
     ): View? { // 이제 반환하는 View가 Null일 수 없으므로 ? 지워도 됨
         _binding = FragmentMyPageBinding.inflate(inflater, container, false)
 
-        //SignUpActivity에서 MyPageFragment(현재 프래그먼트)로 데이터 전달
-        binding.tvMypageIdName.text = arguments?.getString("name")
-        binding.tvMypageIdUserIdContent.hint = arguments?.getString("idresult")
-        binding.tvMypageIdUserMbtiContent.hint = arguments?.getString("mbti")
+        binding.tvMypageIdName.text = UserInfo.userName
+        binding.tvMypageIdUserIdContent.hint = UserInfo.userID
+        binding.tvMypageIdUserMbtiContent.hint = UserInfo.userMbti
 
         return binding.root
     }
