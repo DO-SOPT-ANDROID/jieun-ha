@@ -26,6 +26,7 @@
         android:text="기름이"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:layout_marginStart="10dp"
         tools:layout_constraintBottom_toBottomOf="parent"
         tools:layout_constraintStart_toEndOf="@id/iv_item_friend_profile"
         tools:layout_constraintTop_toTopOf="parent" />
