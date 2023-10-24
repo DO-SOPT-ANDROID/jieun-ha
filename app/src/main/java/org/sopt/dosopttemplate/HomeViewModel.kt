@@ -3,7 +3,7 @@ package org.sopt.dosopttemplate
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
-    // 가짜 데이터
+    // 가짜 데이터(친구목록)
     val mockFriendList = listOf<Friend>(
         Friend(
             profileImage = R.drawable.girum,
@@ -40,5 +40,13 @@ class HomeViewModel : ViewModel() {
             name = "졸려기름",
             description = "졸려서 못해써요.."
         )
+    )
+    // 가짜 데이터(나)
+    val mockMyList = listOf<Friend>(
+        Friend(
+            profileImage = R.drawable.my_dog,
+            name = "꼬식이",
+            description = "내가 이 구역의 대표 강아지",
+        ),
     )
 }

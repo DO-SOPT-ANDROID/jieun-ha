@@ -25,4 +25,10 @@
     <string name="et_sign_up_name_hint">1글자보다 길어야 합니다.</string>
     <string name="et_sign_up_mbti_hint">MBTI를 입력해주세요.</string>
     <string name="btn_sign_up">회원가입하기</string>
+
+    <string name="tv_item_friend_name">기름이</string>
+    <string name="tv_item_friend_description">나는 털에 윤기가 좔좔 기름이에요</string>
+
+    <string name="tv_item_mine_name">꼬식이</string>
+    <string name="tv_item_mine_description">내가 이 구역의 대표 강아지</string>
 </resources>

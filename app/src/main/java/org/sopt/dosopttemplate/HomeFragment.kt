@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.sopt.dosopttemplate.databinding.FragmentHomeBinding
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding
-        get() = requireNotNull(_binding) { "바인딩 객체가 생성되지 않았다. 생성하고 불러라 임마!" }
+        get() = requireNotNull(_binding) { "바인딩 객체가 생성되지 않았습니다." }
     private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreateView(
@@ -26,9 +28,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val myAdapter = MyAdapter(requireContext())
+        binding.rvFriends.adapter = myAdapter
+        myAdapter.setFriendList(viewModel.mockMyList)
+
         val friendAdapter = FriendAdapter(requireContext())
         binding.rvFriends.adapter = friendAdapter
         friendAdapter.setFriendList(viewModel.mockFriendList)
+
+        // concatAdapter 이용해 내 프로필과 친구 목록 연결
+        val concatAdapter = ConcatAdapter(myAdapter, friendAdapter)
+        binding.rvFriends.adapter = concatAdapter
+        binding.rvFriends.layoutManager = LinearLayoutManager(requireContext())
+
     }
 
     override fun onDestroyView() {

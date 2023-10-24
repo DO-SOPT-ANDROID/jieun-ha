@@ -11,7 +11,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="200dp"
-        android:src="@drawable/girum"
+        android:src="@drawable/my_dog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

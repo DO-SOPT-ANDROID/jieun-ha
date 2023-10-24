@@ -4,22 +4,23 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.dosopttemplate.databinding.ItemFriendBinding
+import org.sopt.dosopttemplate.databinding.ItemMineBinding
 
-class MyAdapter(context: Context) : RecyclerView.Adapter<FriendViewHolder>() {
+
+class MyAdapter(context: Context) : RecyclerView.Adapter<MyViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
 
     // 임시 빈 리스트
     private var friendList: List<Friend> = emptyList()
 
     // 어댑터 클래스 필수 함수 1
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
-        val binding = ItemFriendBinding.inflate(inflater, parent, false)
-        return FriendViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val binding = ItemMineBinding.inflate(inflater, parent, false)
+        return MyViewHolder(binding)
     }
 
     // 어댑터 클래스 필수 함수 2
-    override fun onBindViewHolder(holder: FriendViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.onBind(friendList[position])
     }
 
