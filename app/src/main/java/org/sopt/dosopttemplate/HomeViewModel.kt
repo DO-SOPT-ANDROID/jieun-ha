@@ -39,6 +39,21 @@ class HomeViewModel : ViewModel() {
             profileImage = R.drawable.sleepy_girum,
             name = "졸려기름",
             description = "졸려서 못해써요.."
+        ),
+        Friend(
+            profileImage = R.drawable.merong_girum,
+            name = "메롱기름",
+            description = "메렁"
+        ),
+        Friend(
+            profileImage = R.drawable.newborn_girum,
+            name = "갓기름",
+            description = "지금 태어남"
+        ),
+        Friend(
+            profileImage = R.drawable.bad_girum,
+            name = "심기름",
+            description = "심기불편"
         )
     )
     // 가짜 데이터(나)

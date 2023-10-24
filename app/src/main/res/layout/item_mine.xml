@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="90dp">
 
     <ImageView
         android:id="@+id/iv_item_mine_profile"
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
         android:src="@drawable/my_dog"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/tv_item_mine_name"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -41,7 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="20dp"
         android:maxLines="1"
         android:text="@string/tv_item_mine_description"
         android:textSize="16sp"
@@ -57,7 +54,6 @@
         android:id="@+id/btn_item_mine_edit"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="20dp"
         android:adjustViewBounds="true"
         android:backgroundTint="#FFFFFF"
         android:src="@drawable/ic_arrow_white_15"
