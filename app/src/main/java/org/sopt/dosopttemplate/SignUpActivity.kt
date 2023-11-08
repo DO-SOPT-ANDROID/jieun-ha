@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import org.sopt.dosopttemplate.Utils.UserInfo
 import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.util.Calendar
+import java.util.Date
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -14,6 +17,27 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 생일 선택
+        binding.btnSignUpBirth.setOnClickListener {
+            // 생일 선택
+            val datePicker =
+                MaterialDatePicker.Builder.datePicker()
+                    .setTitleText("생일을 선택해주세요.")
+                    .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    .build()
+
+            datePicker.addOnPositiveButtonClickListener {
+                val calendar = Calendar.getInstance()
+                //선택한 날짜를 Date format으로 가져오기
+                calendar.time = Date(it)
+                //선택한 날짜를 밀리세컨드로 값으로 가져오기
+                val calendarMilli = calendar.timeInMillis
+                //버튼text를에 선택한 날짜로바꿔주기
+                binding.btnSignUpBirth.text = "${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.YEAR)}"
+            }
+            datePicker.show(supportFragmentManager,datePicker.toString()) //datePicker를 보여주기
+        }
 
         // 회원가입 버튼 클릭 시
         binding.btnLoginIdSignUp.setOnClickListener {
@@ -26,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
                 UserInfo.userName = binding.etSignUpIdNametext.text.toString()
                 UserInfo.userID = binding.etLoginIdIdHint.text.toString()
                 UserInfo.userPW = binding.etLoginIdPwHint.text.toString()
-                UserInfo.userBirth = binding.etSignUpBirth.text.toString()
+                UserInfo.userBirth = binding.btnSignUpBirth.text.toString()
 
                 Snackbar.make(
                     binding.root,
@@ -44,7 +68,7 @@ class SignUpActivity : AppCompatActivity() {
         val nameText = binding.etSignUpIdNametext.text.toString()
         val id = binding.etLoginIdPwHint.text.toString()
         val pw = binding.etLoginIdPwHint.text.toString()
-        val birth = binding.etSignUpBirth.text.toString()
+        val birth = binding.btnSignUpBirth.text.toString()
 
         if (nameText.isEmpty() || id.isEmpty() ||
             pw.isEmpty() || birth.isEmpty() ||

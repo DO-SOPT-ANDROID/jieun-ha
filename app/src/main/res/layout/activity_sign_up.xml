@@ -65,7 +65,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/et_sign_up_birth"
+        android:id="@+id/btn_sign_up_birth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -92,5 +92,5 @@
         android:text="@string/btn_sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_birth" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_birth" />
 </androidx.constraintlayout.widget.ConstraintLayout>
