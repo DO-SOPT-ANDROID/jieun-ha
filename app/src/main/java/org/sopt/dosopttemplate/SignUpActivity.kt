@@ -26,7 +26,7 @@ class SignUpActivity : AppCompatActivity() {
                 UserInfo.userName = binding.etSignUpIdNametext.text.toString()
                 UserInfo.userID = binding.etLoginIdIdHint.text.toString()
                 UserInfo.userPW = binding.etLoginIdPwHint.text.toString()
-                UserInfo.userMbti = binding.etSignUpIdMbtitext.text.toString()
+                UserInfo.userBirth = binding.etSignUpBirth.text.toString()
 
                 Snackbar.make(
                     binding.root,
@@ -44,14 +44,13 @@ class SignUpActivity : AppCompatActivity() {
         val nameText = binding.etSignUpIdNametext.text.toString()
         val id = binding.etLoginIdPwHint.text.toString()
         val pw = binding.etLoginIdPwHint.text.toString()
-        val MbtiText = binding.etSignUpIdMbtitext.text.toString()
+        val birth = binding.etSignUpBirth.text.toString()
 
         if (nameText.isEmpty() || id.isEmpty() ||
-            pw.isEmpty() || MbtiText.isEmpty() ||
+            pw.isEmpty() || birth.isEmpty() ||
             id.length !in 6..10 ||
             pw.length !in 8..12 ||
-            nameText.length < 2 ||
-            MbtiText.length != 4
+            nameText.length < 2
         ) {
             Snackbar.make(
                 binding.root,

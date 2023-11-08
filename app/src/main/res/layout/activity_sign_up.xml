@@ -6,124 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
-
     <TextView
         android:id="@+id/tv_login_id_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"
         android:text="@string/tv_sign_up"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
-
-    <TextView
-        android:id="@+id/tv_login_id_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tv_sign_up_id"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_id_welcome" />
+        app:layout_constraintVertical_bias="0.044"/>
 
     <EditText
         android:id="@+id/et_login_id_id_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/sign_up_boarder"
         android:hint="@string/et_sign_up_id_hint"
         android:minHeight="48dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_id_id" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_id_welcome" />
 
-    <TextView
-        android:id="@+id/tv_login_id_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tv_sign_up_pw"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_id_id_hint" />
 
     <EditText
         android:id="@+id/et_login_id_pw_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/sign_up_boarder"
         android:hint="@string/et_login_pw_hint"
         android:minHeight="48dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_id_pw" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_id_hint" />
 
-    <TextView
-        android:id="@+id/tv_sign_up_id_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tv_sign_up_name"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_id_pw_hint" />
 
     <EditText
         android:id="@+id/et_sign_up_id_nametext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/sign_up_boarder"
         android:hint="@string/et_sign_up_name_hint"
         android:minHeight="48dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_id_name" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_id_pw_hint" />
 
-    <TextView
-        android:id="@+id/tv_sign_up_id_mbti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tv_sign_up_mbti"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_sign_up_id_nametext" />
 
-    <EditText
-        android:id="@+id/et_sign_up_id_mbtitext"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/et_sign_up_birth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:hint="@string/et_sign_up_mbti_hint"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/sign_up_boarder"
+        android:text="@string/btn_sign_up_birth"
+        android:textAlignment="textStart"
+        android:textColor="#A4A4A4"
         android:minHeight="48dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_id_mbti" />
+        app:layout_constraintTop_toBottomOf="@id/et_sign_up_id_nametext" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_id_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
+        android:background="#9DC59B"
         android:text="@string/btn_sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_birth" />
 </androidx.constraintlayout.widget.ConstraintLayout>

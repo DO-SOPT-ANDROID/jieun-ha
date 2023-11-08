@@ -50,25 +50,25 @@
         app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_id" />
 
     <TextView
-        android:id="@+id/tv_mypage_id_user_mbti"
+        android:id="@+id/tv_mypage_id_user_birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/tv_mypage_mbti"
+        android:text="@string/tv_mypage_birth"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_id_content" />
 
     <TextView
-        android:id="@+id/tv_mypage_id_user_mbti_content"
+        android:id="@+id/tv_mypage_id_user_birth_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/tv_mypage_mbti_info"
+        android:hint="@string/tv_mypage_birth_info"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_mbti" />
+        app:layout_constraintTop_toBottomOf="@id/tv_mypage_id_user_birth" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
