@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.dosopttemplate.ServicePool.authService
+import org.sopt.dosopttemplate.Utils.UserInfo
 import org.sopt.dosopttemplate.Utils.showToast
 import org.sopt.dosopttemplate.data.RequestLoginDto
 import org.sopt.dosopttemplate.data.ResponseLoginDto
@@ -26,10 +27,11 @@ class LoginActivity : AppCompatActivity() {
 
     // 로그인 버튼 클릭 시
     private fun login() {
-        val id = binding.etLoginIdIdHint.text.toString()
-        val pw = binding.etLoginIdPwHint.text.toString()
 
         binding.btnLoginIdSignIn.setOnClickListener {
+            val id = binding.etLoginIdIdHint.text.toString()
+            val pw = binding.etLoginIdPwHint.text.toString()
+
             // Request 요청 : RequestLoginDto body 담아주기
             authService.login(RequestLoginDto(id, pw))
                 // enqueue : 비동기 방식으로 네트워크 요청 보내고, 결과를 받아 알맞게 처리
@@ -40,19 +42,29 @@ class LoginActivity : AppCompatActivity() {
                         call: Call<ResponseLoginDto>,
                         response: Response<ResponseLoginDto>
                     ) {
-                        if (response.isSuccessful) {
-                            val data: ResponseLoginDto = response.body()!!
-                            val userId = data.id
-                            showToast("로그인이 성공했습니다. 유저 ID는 $userId 입니다.")
-                        }
+                        when(response.code()){
+                            200 -> {
+                                // 로그인 성공
+                                val data: ResponseLoginDto = response.body()!!
+                                val userId = data.id
+                                showToast("로그인이 성공했습니다. 유저 ID는 $userId 입니다.")
 
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                        startActivity(intent)
+                                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                startActivity(intent)
+                            }
+                            400 -> {
+                                // 로그인 실패
+                                showToast("로그인에 실패했습니다.")
+                            }
+                            else -> {
+                                showToast("서버 에러 발생")
+                            }
+                        }
                     }
 
                     // 네트워크 요청 중 오류 발생 시 호출
                     override fun onFailure(call: Call<ResponseLoginDto>, t: Throwable) {
-                        showToast("서버 에러 발생")
+                        showToast("네트워크 오류 발생")
                     }
                 }
                 )
