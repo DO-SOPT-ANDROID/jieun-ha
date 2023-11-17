@@ -31,8 +31,6 @@ class SignUpActivity : AppCompatActivity() {
                 val calendar = Calendar.getInstance()
                 //선택한 날짜를 Date format으로 가져오기
                 calendar.time = Date(it)
-                //선택한 날짜를 밀리세컨드로 값으로 가져오기
-                val calendarMilli = calendar.timeInMillis
                 //버튼text를에 선택한 날짜로바꿔주기
                 binding.btnSignUpBirth.text = "${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.YEAR)}"
             }
