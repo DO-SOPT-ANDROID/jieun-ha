@@ -2,11 +2,11 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.dosopttemplate.Utils.UserInfo
+import org.sopt.dosopttemplate.Utils.showToast
 import org.sopt.dosopttemplate.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -38,16 +38,12 @@ class LoginActivity : AppCompatActivity() {
             var pw: String = binding.etLoginIdPwHint.text.toString()
 
             if (id == UserInfo.userID && pw == UserInfo.userPW) {
-                toast("로그인 성공!")
+                showToast("로그인 성공")
                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(intent)
             } else {
-                toast("로그인 실패!")
+                showToast("로그인 실패!")
             }
         }
-    }
-
-    fun toast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
