@@ -2,6 +2,7 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.dosopttemplate.ServicePool.authService
 import org.sopt.dosopttemplate.Utils.showToast
