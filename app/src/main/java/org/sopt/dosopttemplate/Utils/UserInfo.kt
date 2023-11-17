@@ -6,6 +6,6 @@ class UserInfo {
         var userName: String = ""
         var userID: String = ""
         var userPW: String = ""
-        var userMbti: String = ""
+        var userBirth: String = ""
     }
 }

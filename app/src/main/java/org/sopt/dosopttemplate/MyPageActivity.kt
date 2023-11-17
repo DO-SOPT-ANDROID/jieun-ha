@@ -12,11 +12,11 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val name = intent.getStringExtra("name")
-        val mbti = intent.getStringExtra("mbti")
+        val birth = intent.getStringExtra("birth")
         val id = intent.getStringExtra("idresult")
 
         binding.tvMypageIdName.text = name
         binding.tvMypageIdUserIdContent.hint = id
-        binding.tvMypageIdUserMbtiContent.hint = mbti
+        binding.tvMypageIdUserBirthContent.hint = birth
     }
 }

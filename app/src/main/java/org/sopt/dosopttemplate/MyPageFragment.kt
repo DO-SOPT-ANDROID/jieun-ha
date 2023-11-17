@@ -22,7 +22,7 @@ class MyPageFragment : Fragment() {
 
         binding.tvMypageIdName.text = UserInfo.userName
         binding.tvMypageIdUserIdContent.hint = UserInfo.userID
-        binding.tvMypageIdUserMbtiContent.hint = UserInfo.userMbti
+        binding.tvMypageIdUserBirthContent.hint = UserInfo.userBirth
 
         return binding.root
     }
