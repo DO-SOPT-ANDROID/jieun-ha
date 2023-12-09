@@ -17,7 +17,7 @@
 
     <string name="tv_sign_up">기본 정보를 \n입력하세요.</string>
     <string name="et_sign_up_id_hint">  아이디(6글자 이상 10글자 이하)</string>
-    <string name="et_sign_up_pw_hint">  비밀번호(8글자 이상 12글자 이하)</string>
+    <string name="et_sign_up_pw_hint">  비밀번호(6글자 이상 12글자 이하)</string>
     <string name="et_sign_up_name_hint">  이름(1글자 이상)</string>
     <string name="btn_sign_up_birth">  생일</string>
     <string name="btn_sign_up">회원가입하기</string>
@@ -27,4 +27,5 @@
 
     <string name="tv_item_mine_name">꼬식이</string>
     <string name="tv_item_mine_description">내가 이 구역의 대표 강아지</string>
+    <string name="tv_signup_pw_check">영문, 숫자, 특수문자를 포함해야 합니다.</string>
 </resources>

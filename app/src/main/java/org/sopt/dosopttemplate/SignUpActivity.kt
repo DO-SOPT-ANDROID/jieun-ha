@@ -3,6 +3,9 @@ package org.sopt.dosopttemplate
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -25,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
         birth()
         signup()
+        showCheckingPW()
         observerAvailable()
         observerSignUpResult()
     }
@@ -80,6 +84,27 @@ class SignUpActivity : AppCompatActivity() {
             return false
         } else {
             return true
+        }
+    }
+
+    private fun showCheckingPW(){
+        binding.etLoginIdPwHint.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+            override fun afterTextChanged(s: Editable?) {
+                updatePasswordCheckVisibility(testInfo())
+            }
+        })
+    }
+    private fun updatePasswordCheckVisibility(isValid: Boolean) {
+        val pwCheckTextView = binding.tvSignupPwCheck
+        if (isValid) {
+            pwCheckTextView.visibility = View.GONE
+        } else {
+            pwCheckTextView.visibility = View.VISIBLE
         }
     }
 
