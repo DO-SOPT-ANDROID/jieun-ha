@@ -1,17 +1,14 @@
 package org.sopt.dosopttemplate
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
-import org.sopt.dosopttemplate.ServicePool.authService
 import org.sopt.dosopttemplate.Utils.showToast
-import org.sopt.dosopttemplate.data.ResponseMemberCheckDto
 import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
-import retrofit2.Call
-import retrofit2.Response
 import java.util.Calendar
 import java.util.Date
 import kotlin.properties.Delegates
@@ -28,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
 
         birth()
         signup()
+        observerAvailable()
         observerSignUpResult()
     }
 
@@ -57,20 +55,26 @@ class SignUpActivity : AppCompatActivity() {
 
     // 조건 검사
     private fun testInfo(): Boolean {
-        val nameText = binding.etSignUpIdNametext.text.toString()
-        val id = binding.etLoginIdPwHint.text.toString()
+        val id = binding.etLoginIdIdHint.text.toString()
         val pw = binding.etLoginIdPwHint.text.toString()
+        val nameText = binding.etSignUpIdNametext.text.toString()
         val birth = binding.btnSignUpBirth.text.toString()
+
+        // ID 조건 (영문, 숫자 포함 6~10글자 이내)
+        val idRegex = Regex("^[a-zA-Z0-9]{6,10}\$")
+        // PW 조건 (영문, 숫자, 특수문자가 포함 6~12글자 이내)
+        val pwRegex =
+            Regex("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#\$%^&*()-+])[a-zA-Z\\d!@#\$%^&*()-+]{6,12}\$")
 
         if (nameText.isEmpty() || id.isEmpty() ||
             pw.isEmpty() || birth.isEmpty() ||
-            id.length !in 6..10 ||
-            pw.length !in 8..12 ||
+            !id.matches(idRegex) ||
+            !pw.matches(pwRegex) ||
             nameText.length < 2
         ) {
             Snackbar.make(
                 binding.root,
-                "모든 정보를 입력해주세요",
+                "모든 정보를 올바르게 입력해주세요",
                 Snackbar.LENGTH_SHORT
             ).show()
             return false
@@ -79,9 +83,9 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun observerSignUpResult(){
-        authViewModel.signUpSuccess.observe(this){
-            if(it){
+    private fun observerSignUpResult() {
+        authViewModel.signUpSuccess.observe(this) {
+            if (it) {
                 showToast("회원가입 성공")
                 startActivity(
                     Intent(
@@ -89,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
                         LoginActivity::class.java
                     )
                 )
-            } else{
+            } else {
                 showToast("회원가입 실패")
             }
         }
@@ -101,17 +105,37 @@ class SignUpActivity : AppCompatActivity() {
         authViewModel.checkID(id = username)
     }
 
+    private fun observerAvailable() {
+        authViewModel.checkAvailable.observe(this) { isAvailable ->
+            available = isAvailable
+            if (isAvailable) {
+                showToast("사용 가능한 아이디입니다.")
+            } else {
+                showToast("이미 사용 중인 아이디입니다.")
+            }
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private fun changeButton(): Boolean {
+        val testResult = testInfo()
+        if (testResult) {
+            binding.btnLoginIdSignUp.isEnabled = true
+            binding.btnLoginIdSignUp.setBackgroundColor(R.color.light_green)
+        }
+        return testResult
+    }
+
     // 회원가입 버튼 클릭 시
     private fun signup() {
         binding.btnLoginIdSignUp.setOnClickListener {
-            val testResult = testInfo() // 조건 검사 결과를 저장
+            val testResult = changeButton()
 
-            val id = binding.etLoginIdPwHint.text.toString()
+            val id = binding.etLoginIdIdHint.text.toString()
             val pw = binding.etLoginIdPwHint.text.toString()
             val nickname = binding.etSignUpIdNametext.text.toString()
 
             isExist()
-
             if (available) {
                 showToast("중복된 아이디입니다.")
             } else if (testResult && !available) { // 조건이 적절하고 중복된 아이디가 아닌 경우
