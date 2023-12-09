@@ -2,25 +2,23 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import org.sopt.dosopttemplate.ServicePool.authService
 import org.sopt.dosopttemplate.Utils.showToast
-import org.sopt.dosopttemplate.data.RequestSignUpDto
 import org.sopt.dosopttemplate.data.ResponseMemberCheckDto
-import org.sopt.dosopttemplate.data.ResponseSignUpDto
 import org.sopt.dosopttemplate.databinding.ActivitySignUpBinding
 import retrofit2.Call
 import retrofit2.Response
 import java.util.Calendar
 import java.util.Date
-import java.util.concurrent.CountDownLatch
 import kotlin.properties.Delegates
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
+    private val authViewModel by viewModels<AuthViewModel>()
     private var available by Delegates.notNull<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
         birth()
         signup()
+        observerSignUpResult()
     }
 
     // 생일 정보 입력
@@ -80,26 +79,26 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    private fun observerSignUpResult(){
+        authViewModel.signUpSuccess.observe(this){
+            if(it){
+                showToast("회원가입 성공")
+                startActivity(
+                    Intent(
+                        this,
+                        LoginActivity::class.java
+                    )
+                )
+            } else{
+                showToast("회원가입 실패")
+            }
+        }
+    }
+
     // 아이디 중복 확인
     private fun isExist() {
         var username = binding.etLoginIdIdHint.text.toString() // 아이디로 검색
-
-        authService.checkMember(username)
-            .enqueue(object : retrofit2.Callback<ResponseMemberCheckDto> {
-                override fun onResponse(
-                    call: Call<ResponseMemberCheckDto>,
-                    response: Response<ResponseMemberCheckDto>
-                ) {
-                    if (response.isSuccessful) {
-                        val data: ResponseMemberCheckDto = response.body()!!
-                        available = data.isExist
-                    }
-                }
-
-                override fun onFailure(call: Call<ResponseMemberCheckDto>, t: Throwable) {
-                    showToast("서버 에러 발생")
-                }
-            })
+        authViewModel.checkID(id = username)
     }
 
     // 회원가입 버튼 클릭 시
@@ -116,36 +115,7 @@ class SignUpActivity : AppCompatActivity() {
             if (available) {
                 showToast("중복된 아이디입니다.")
             } else if (testResult && !available) { // 조건이 적절하고 중복된 아이디가 아닌 경우
-                authService.signup(RequestSignUpDto(id, pw, nickname))
-                    .enqueue(object : retrofit2.Callback<ResponseSignUpDto> {
-                        override fun onResponse(
-                            call: Call<ResponseSignUpDto>,
-                            response: Response<ResponseSignUpDto>
-                        ) {
-                            when (response.code()) {
-                                201 -> {
-                                    // 회원가입 성공
-                                    showToast("회원가입 성공!")
-                                    val intent =
-                                        Intent(this@SignUpActivity, LoginActivity::class.java)
-                                    startActivity(intent)
-                                }
-
-                                400 -> {
-                                    // 회원가입 실패
-                                    showToast("회원가입에 실패했습니다.")
-                                }
-
-                                else -> {
-                                    showToast("서버 에러 발생")
-                                }
-                            }
-                        }
-
-                        override fun onFailure(call: Call<ResponseSignUpDto>, t: Throwable) {
-                            showToast("네트워크 에러 발생")
-                        }
-                    })
+                authViewModel.signUp(id = id, pw = pw, name = nickname)
             } else {
                 showToast("올바른 정보를 입력해주세요.")
             }

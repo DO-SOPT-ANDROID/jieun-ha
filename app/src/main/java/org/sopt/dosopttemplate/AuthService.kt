@@ -1,6 +1,7 @@
 package org.sopt.dosopttemplate
 
 import org.sopt.dosopttemplate.data.RequestLoginDto
+import org.sopt.dosopttemplate.data.RequestMemberCheckDto
 import org.sopt.dosopttemplate.data.RequestMemberDto
 import org.sopt.dosopttemplate.data.RequestSignUpDto
 import org.sopt.dosopttemplate.data.ResponseLoginDto
@@ -32,7 +33,7 @@ interface AuthService {
 
     @GET("api/v1/members/check")
     fun checkMember(
-        @Query("username") username: String,
+        @Query("username") username: RequestMemberCheckDto,
     ):Call<ResponseMemberCheckDto>
 }
 

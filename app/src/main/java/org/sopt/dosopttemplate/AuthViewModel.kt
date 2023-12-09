@@ -1,15 +1,14 @@
 package org.sopt.dosopttemplate
 
-import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.material.internal.ContextUtils
 import org.sopt.dosopttemplate.ServicePool.authService
-import org.sopt.dosopttemplate.Utils.showToast
 import org.sopt.dosopttemplate.data.RequestLoginDto
+import org.sopt.dosopttemplate.data.RequestMemberCheckDto
 import org.sopt.dosopttemplate.data.RequestSignUpDto
 import org.sopt.dosopttemplate.data.ResponseLoginDto
+import org.sopt.dosopttemplate.data.ResponseMemberCheckDto
 import org.sopt.dosopttemplate.data.ResponseSignUpDto
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,6 +47,36 @@ class AuthViewModel : ViewModel() {
         isLoginButtonClicked.value = true
     }
 
+    // 아이디 중복 확인
+    private val _checkResult: MutableLiveData<ResponseMemberCheckDto> = MutableLiveData()
+    val checkResult: LiveData<ResponseMemberCheckDto> get() = _checkResult
+
+    private val _checkAvailable: MutableLiveData<Boolean> = MutableLiveData()
+    val checkAvailable: LiveData<Boolean> get() = _checkAvailable
+
+    fun checkID(id: String){
+        authService.checkMember(RequestMemberCheckDto(id))
+            .enqueue(object : Callback<ResponseMemberCheckDto>{
+                override fun onResponse(
+                    call: Call<ResponseMemberCheckDto>,
+                    response: Response<ResponseMemberCheckDto>
+                ) {
+                    if (response.isSuccessful) {
+                        _checkResult.value = response.body()
+                        val data: ResponseMemberCheckDto = response.body()!!
+                        _checkAvailable.value = data.isExist
+                    } else {
+                        val data: ResponseMemberCheckDto = response.body()!!
+                        _checkAvailable.value = data.isExist
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseMemberCheckDto>, t: Throwable) {
+                }
+            })
+    }
+
+    // 회원가입
     private val _signUpResult: MutableLiveData<ResponseSignUpDto> = MutableLiveData()
     val signUpResult: LiveData<ResponseSignUpDto> get() = _signUpResult
 
