@@ -9,6 +9,7 @@ import org.sopt.dosopttemplate.data.ResponseMemberCheckDto
 import org.sopt.dosopttemplate.data.ResponseMemberDto
 import org.sopt.dosopttemplate.data.ResponseSignUpDto
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -21,9 +22,9 @@ interface AuthService {
     ):Call<ResponseSignUpDto> // 응답이 왓을 때 Callback으로 불려질 타입
 
     @POST("api/v1/members/sign-in")
-    fun login(
+    suspend fun login(
         @Body request: RequestLoginDto,
-    ): Call<ResponseLoginDto>
+    ): Response<ResponseLoginDto>
 
     @GET("api/v1/members/{memberId}")
     fun memberInfo(
