@@ -2,19 +2,17 @@ package org.sopt.dosopttemplate
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import org.sopt.dosopttemplate.ServicePool.authService
-import org.sopt.dosopttemplate.Utils.UserInfo
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.sopt.dosopttemplate.Utils.showToast
-import org.sopt.dosopttemplate.data.RequestLoginDto
-import org.sopt.dosopttemplate.data.ResponseLoginDto
 import org.sopt.dosopttemplate.databinding.ActivityLoginBinding
-import retrofit2.Call
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private val authViewModel by viewModels<AuthViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         signup()
+        observeLoginResult()
         login()
     }
 
@@ -32,7 +31,12 @@ class LoginActivity : AppCompatActivity() {
             val id = binding.etLoginIdIdHint.text.toString()
             val pw = binding.etLoginIdPwHint.text.toString()
 
-            // Request 요청 : RequestLoginDto body 담아주기
+            authViewModel.login(
+                id = id,
+                password = pw
+            )
+
+            /*// Request 요청 : RequestLoginDto body 담아주기
             authService.login(RequestLoginDto(id, pw))
                 // enqueue : 비동기 방식으로 네트워크 요청 보내고, 결과를 받아 알맞게 처리
                 // Callback 인터페이스를 구현한 객체를 전달
@@ -67,12 +71,31 @@ class LoginActivity : AppCompatActivity() {
                         showToast("네트워크 오류 발생")
                     }
                 }
-                )
+                )*/
+        }
+    }
+
+    private fun observeLoginResult() {
+        lifecycleScope.launch {
+            authViewModel.loginState.collect{ loginState ->
+                when(loginState){
+                    is LoginState.Success -> {
+                        showToast("로그인 성공")
+                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                    }
+                    is LoginState.Error -> {
+                        showToast("로그인 실패")
+                    }
+                    is LoginState.Loading -> {
+                        showToast("로그인 중")
+                    }
+                }
+            }
         }
     }
 
     // 회원가입 버튼 클릭 시
-    private fun signup(){
+    private fun signup() {
         // 회원가입 페이지로 이동
         binding.btnLoginIdSignUp.setOnClickListener {
             // Intent 실행
