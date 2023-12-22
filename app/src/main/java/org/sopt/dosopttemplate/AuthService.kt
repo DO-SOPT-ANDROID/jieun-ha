@@ -17,9 +17,9 @@ import retrofit2.http.Query
 
 interface AuthService {
     @POST("api/v1/members")
-    fun signup(
+    suspend fun signup(
         @Body request: RequestSignUpDto,
-    ):Call<ResponseSignUpDto> // 응답이 왓을 때 Callback으로 불려질 타입
+    ):Response<ResponseSignUpDto> // 응답이 왓을 때 Callback으로 불려질 타입
 
     @POST("api/v1/members/sign-in")
     suspend fun login(
